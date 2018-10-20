@@ -1,4 +1,4 @@
-pragma solidity ^0.4.8;
+pragma solidity ^0.4.24;
 
 contract WorldCupCardsMarket {
 
@@ -56,7 +56,7 @@ contract WorldCupCardsMarket {
   event CardNoLongerForSale(uint indexed cardId);
 
   /* Initializes contract with initial supply tokens to the creator of the contract */
-  constructor() payable public {
+  function WorldCupCards() public {
     owner = msg.sender;
   }
 
@@ -226,6 +226,6 @@ contract WorldCupCardsMarket {
   }
 
   function randomMax(uint max) internal view returns (uint randomNumber) {
-    return(uint(keccak256(blockhash(block.number-1), now )) % max);
+    return(uint(keccak256(blockhash(block.number-1), now)) % max);
   }
 }
